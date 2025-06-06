@@ -1,4 +1,3 @@
-
 import { ExternalLink, Code, Beaker } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
@@ -37,42 +36,77 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-background relative overflow-hidden" ref={ref}>
-      {/* Parallax background image */}
+    <section id="projects" className="py-20 relative overflow-hidden" ref={ref}>
+      {/* Enhanced parallax background with tech image */}
       <motion.div
-        className="absolute inset-0 opacity-5"
+        className="absolute inset-0 parallax-element"
         style={{ y: backgroundY }}
       >
+        <div className="absolute inset-0 bg-black/75 z-10" />
         <img 
           src="https://i.pinimg.com/736x/81/16/7a/81167a7f65cd29d2f12d343d1685a87c.jpg"
           alt="tech innovation background"
-          className="w-full h-full object-cover scale-110"
+          className="w-full h-full object-cover grayscale scale-110"
         />
       </motion.div>
 
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
+      {/* Secondary tech overlay */}
+      <motion.div
+        className="absolute inset-0 opacity-20 parallax-element"
+        style={{ y: useTransform(scrollYProgress, [0, 1], [0, -250]) }}
+      >
+        <img 
+          src="https://i.pinimg.com/736x/18/15/14/1815144f4f5b160210b035d6fcdfbc4c.jpg"
+          alt="tech overlay"
+          className="w-full h-full object-cover grayscale mix-blend-overlay"
+        />
+      </motion.div>
+
+      {/* Animated circuit pattern */}
+      <motion.div
+        className="absolute inset-0 opacity-5"
+        animate={{ 
+          backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
+        }}
+        transition={{ 
+          duration: 15, 
+          repeat: Infinity, 
+          ease: "linear" 
+        }}
+        style={{
+          backgroundImage: "linear-gradient(rgba(0,255,100,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,100,0.3) 1px, transparent 1px)",
+          backgroundSize: "30px 30px"
+        }}
+      />
+
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-20">
         <motion.div 
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1 }}
         >
           <motion.h2 
             className="text-4xl md:text-5xl font-space font-bold mb-6 text-gradient"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.5, rotateX: 90 }}
+            whileInView={{ opacity: 1, scale: 1, rotateX: 0 }}
             viewport={{ once: false }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            whileHover={{ 
+              scale: 1.05,
+              textShadow: "0 0 30px rgba(0,255,100,0.6)"
+            }}
           >
             Projects & Innovation
           </motion.h2>
           <motion.p 
-            className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed glass-effect p-6 rounded-lg neon-border"
+            initial={{ opacity: 0, y: 30, rotateX: 45 }}
+            whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.4 }}
+            whileHover={{ scale: 1.02 }}
           >
             From university research to building AI ecosystems, each project represents a step 
             toward understanding and improving our world.
@@ -83,59 +117,88 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div 
               key={index}
-              className="bg-card p-8 border border-border hover:border-primary/50 transition-all duration-300 group relative overflow-hidden"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              className="glass-effect p-8 neon-border group relative overflow-hidden"
+              initial={{ opacity: 0, y: 100, rotateY: 45 }}
+              whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
               viewport={{ once: false }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
               whileHover={{ 
                 scale: 1.05,
-                boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
-                borderColor: "hsl(var(--primary))"
+                rotateY: 10,
+                rotateX: 5,
+                boxShadow: "0 25px 50px rgba(0,255,100,0.2)"
               }}
             >
-              {/* Animated background */}
+              {/* Animated gradient background */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100"
-                transition={{ duration: 0.3 }}
+                className="absolute inset-0 opacity-0 group-hover:opacity-100"
+                initial={false}
+                animate={{
+                  background: [
+                    "linear-gradient(45deg, rgba(0,255,100,0.05) 0%, transparent 50%)",
+                    "linear-gradient(135deg, rgba(0,255,100,0.05) 0%, transparent 50%)",
+                    "linear-gradient(225deg, rgba(0,255,100,0.05) 0%, transparent 50%)",
+                    "linear-gradient(315deg, rgba(0,255,100,0.05) 0%, transparent 50%)",
+                    "linear-gradient(45deg, rgba(0,255,100,0.05) 0%, transparent 50%)"
+                  ]
+                }}
+                transition={{ 
+                  duration: 4, 
+                  repeat: Infinity, 
+                  ease: "linear" 
+                }}
               />
               
               <div className="relative z-10">
                 <motion.div 
                   className="flex items-center justify-between mb-4"
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: false }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                 >
                   <motion.div
-                    whileHover={{ rotate: 360, scale: 1.2 }}
+                    whileHover={{ 
+                      rotate: 360, 
+                      scale: 1.3,
+                      filter: "drop-shadow(0 0 15px rgba(0,255,100,0.8))"
+                    }}
                     transition={{ duration: 0.6 }}
                   >
                     {project.icon}
                   </motion.div>
-                  <span className={`text-xs px-2 py-1 rounded ${
-                    project.status === 'Completed' ? 'bg-primary/20 text-primary' :
-                    project.status === 'In Progress' ? 'bg-yellow-500/20 text-yellow-400' :
-                    'bg-blue-500/20 text-blue-400'
-                  }`}>
+                  <motion.span 
+                    className={`text-xs px-3 py-1 rounded-full neon-border glass-effect ${
+                      project.status === 'Completed' ? 'text-green-400' :
+                      project.status === 'In Progress' ? 'text-yellow-400' :
+                      'text-blue-400'
+                    }`}
+                    whileHover={{ scale: 1.1 }}
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 + 0.2 }}
+                  >
                     {project.status}
-                  </span>
+                  </motion.span>
                 </motion.div>
                 
                 <motion.h3 
-                  className="text-xl font-space font-bold mb-3 text-foreground group-hover:text-primary transition-colors"
-                  initial={{ opacity: 0, y: 10 }}
+                  className="text-xl font-space font-bold mb-3 text-white group-hover:text-green-400 transition-colors"
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false }}
                   transition={{ duration: 0.4, delay: index * 0.1 + 0.1 }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    textShadow: "0 0 10px rgba(0,255,100,0.8)"
+                  }}
                 >
                   {project.title}
                 </motion.h3>
                 
                 <motion.p 
-                  className="text-muted-foreground text-sm mb-4 leading-relaxed"
-                  initial={{ opacity: 0, y: 10 }}
+                  className="text-gray-300 text-sm mb-4 leading-relaxed"
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false }}
                   transition={{ duration: 0.4, delay: index * 0.1 + 0.2 }}
@@ -144,11 +207,15 @@ const Projects = () => {
                 </motion.p>
                 
                 <motion.div 
-                  className="text-xs text-primary font-medium"
+                  className="text-xs text-green-400 font-medium"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: false }}
                   transition={{ duration: 0.4, delay: index * 0.1 + 0.3 }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    textShadow: "0 0 5px rgba(0,255,100,0.8)"
+                  }}
                 >
                   {project.category}
                 </motion.div>

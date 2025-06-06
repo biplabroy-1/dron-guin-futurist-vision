@@ -10,94 +10,137 @@ const Creative = () => {
     offset: ["start end", "end start"]
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -150]);
+  const overlayY = useTransform(scrollYProgress, [0, 1], [0, -200]);
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
   
   const creativeAreas = [
     {
       title: "Music Production",
       description: "A decade of creating music as art and recreation, exploring sound as a medium for expression and emotion.",
-      icon: <Music className="text-primary" size={32} />,
-      experience: "10+ Years"
+      icon: <Music className="text-green-400" size={32} />,
+      experience: "10+ Years",
+      bgImage: "https://i.pinimg.com/736x/52/6d/f9/526df98c7d7f294953815b5258a39c7e.jpg"
     },
     {
-      title: "Film Making",
+      title: "Film Making", 
       description: "Passionate about storytelling through visual media, with expertise in camera work and lighting techniques.",
-      icon: <Film className="text-primary" size={32} />,
-      experience: "Professional"
+      icon: <Film className="text-green-400" size={32} />,
+      experience: "Professional",
+      bgImage: "https://i.pinimg.com/736x/b9/d9/c3/b9d9c3993bf314178684fc8d9c58b831.jpg"
     },
     {
       title: "Camera & Lighting",
       description: "Technical expertise in visual composition, understanding how light and perspective shape reality.",
-      icon: <Camera className="text-primary" size={32} />,
-      experience: "Advanced"
+      icon: <Camera className="text-green-400" size={32} />,
+      experience: "Advanced",
+      bgImage: "https://i.pinimg.com/736x/21/dc/30/21dc3013a1d62e8e8fb2f2d652375add.jpg"
     },
     {
       title: "Culinary Arts",
       description: "Cooking as a personal hobby, finding joy and creativity in the art of preparing and sharing food.",
-      icon: <ChefHat className="text-primary" size={32} />,
-      experience: "Personal"
+      icon: <ChefHat className="text-green-400" size={32} />,
+      experience: "Personal",
+      bgImage: "https://i.pinimg.com/736x/ae/a4/58/aea458d392bab5d5b405a47c48b94127.jpg"
     }
   ];
 
   return (
-    <section id="creative" className="py-20 bg-card relative overflow-hidden" ref={ref}>
-      {/* Animated background with visual image */}
+    <section id="creative" className="py-20 relative overflow-hidden" ref={ref}>
+      {/* Multiple parallax background layers */}
       <motion.div
-        className="absolute inset-0 opacity-5"
-        style={{ y }}
+        className="absolute inset-0 parallax-element"
+        style={{ y: backgroundY }}
       >
+        <div className="absolute inset-0 bg-black/70 z-10" />
         <img 
           src="https://i.pinimg.com/736x/2a/b7/78/2ab7780cf2854fc7ad188b4dac60014d.jpg"
           alt="creative environment"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover grayscale scale-110"
         />
       </motion.div>
 
-      {/* Floating creative elements */}
+      {/* Secondary parallax layer */}
       <motion.div
-        className="absolute top-20 left-10 w-4 h-4 bg-primary/30 rounded-full"
-        animate={{ 
-          y: [0, -30, 0],
-          x: [0, 20, 0],
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.8, 0.3] 
-        }}
-        transition={{ duration: 5, repeat: Infinity }}
-      />
+        className="absolute inset-0 opacity-30 parallax-element"
+        style={{ y: overlayY }}
+      >
+        <img 
+          src="https://i.pinimg.com/736x/52/6d/f9/526df98c7d7f294953815b5258a39c7e.jpg"
+          alt="music overlay"
+          className="w-full h-full object-cover grayscale mix-blend-overlay"
+        />
+      </motion.div>
+
+      {/* Animated mesh gradient overlay */}
       <motion.div
-        className="absolute top-40 right-20 w-6 h-6 bg-green-400/30 rounded-full"
+        className="absolute inset-0 opacity-10"
         animate={{ 
-          y: [0, 40, 0],
-          x: [0, -15, 0],
-          scale: [1, 0.8, 1],
-          opacity: [0.4, 1, 0.4] 
+          background: [
+            "radial-gradient(circle at 20% 50%, rgba(0,255,100,0.3) 0%, transparent 50%)",
+            "radial-gradient(circle at 80% 50%, rgba(0,255,100,0.3) 0%, transparent 50%)",
+            "radial-gradient(circle at 50% 20%, rgba(0,255,100,0.3) 0%, transparent 50%)",
+            "radial-gradient(circle at 50% 80%, rgba(0,255,100,0.3) 0%, transparent 50%)",
+            "radial-gradient(circle at 20% 50%, rgba(0,255,100,0.3) 0%, transparent 50%)"
+          ]
         }}
-        transition={{ duration: 6, repeat: Infinity, delay: 1 }}
+        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
       />
 
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
+      {/* Floating creative elements with complex animations */}
+      {[...Array(12)].map((_, i) => (
+        <motion.div
+          key={i}
+          className={`absolute w-2 h-2 bg-green-400/40 rounded-full`}
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+          }}
+          animate={{ 
+            y: [0, -60 - Math.random() * 40, 0],
+            x: [0, Math.random() * 60 - 30, 0],
+            scale: [0.5, 1.5 + Math.random(), 0.5],
+            opacity: [0.2, 0.8 + Math.random() * 0.2, 0.2],
+            rotate: [0, 360]
+          }}
+          transition={{ 
+            duration: 6 + Math.random() * 4, 
+            repeat: Infinity,
+            delay: Math.random() * 3,
+            ease: "easeInOut"
+          }}
+        />
+      ))}
+
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-20">
         <motion.div 
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 50 }}
+          style={{ opacity }}
+          initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1 }}
         >
           <motion.h2 
             className="text-4xl md:text-5xl font-space font-bold mb-6 text-gradient"
-            initial={{ opacity: 0, rotateX: 90 }}
-            whileInView={{ opacity: 1, rotateX: 0 }}
+            initial={{ opacity: 0, rotateX: 90, scale: 0.5 }}
+            whileInView={{ opacity: 1, rotateX: 0, scale: 1 }}
             viewport={{ once: false }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            whileHover={{ 
+              scale: 1.05,
+              textShadow: "0 0 30px rgba(0,255,100,0.6)"
+            }}
           >
             Creative Pursuits
           </motion.h2>
           <motion.p 
-            className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed glass-effect p-6 rounded-lg"
+            initial={{ opacity: 0, y: 50, rotateY: 45 }}
+            whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
             viewport={{ once: false }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            whileHover={{ scale: 1.02, rotateY: 5 }}
           >
             Beyond technology and business, I find inspiration and balance through various 
             creative outlets that fuel my imagination and perspective.
@@ -108,30 +151,53 @@ const Creative = () => {
           {creativeAreas.map((area, index) => (
             <motion.div 
               key={index}
-              className="bg-background p-8 border border-border hover:border-primary/50 transition-all duration-300 group relative overflow-hidden"
-              initial={{ opacity: 0, y: 50, rotateY: 45 }}
+              className="neon-border glass-effect p-8 group relative overflow-hidden"
+              initial={{ opacity: 0, y: 100, rotateY: 45 }}
               whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
               viewport={{ once: false }}
               transition={{ duration: 0.8, delay: index * 0.15 }}
               whileHover={{ 
                 scale: 1.03,
                 rotateY: 5,
-                boxShadow: "0 25px 50px rgba(0,0,0,0.15)"
+                rotateX: 5,
+                z: 50
               }}
             >
-              {/* Animated background gradient */}
+              {/* Individual background for each card */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100"
-                transition={{ duration: 0.4 }}
+                className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+                style={{
+                  backgroundImage: `url(${area.bgImage})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  filter: 'grayscale(100%)'
+                }}
+              />
+
+              {/* Animated border effect */}
+              <motion.div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{
+                  background: "linear-gradient(45deg, transparent 30%, rgba(0,255,100,0.1) 50%, transparent 70%)",
+                  backgroundSize: "200% 200%"
+                }}
+                animate={{
+                  backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"]
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
               />
 
               <div className="flex items-start space-x-6 relative z-10">
                 <motion.div 
                   className="flex-shrink-0"
                   whileHover={{ 
-                    scale: 1.2, 
+                    scale: 1.3, 
                     rotate: 360,
-                    filter: "drop-shadow(0 0 20px hsl(var(--primary)))"
+                    filter: "drop-shadow(0 0 20px rgba(0,255,100,0.8))"
                   }}
                   transition={{ duration: 0.6 }}
                 >
@@ -141,28 +207,37 @@ const Creative = () => {
                 <div className="flex-grow">
                   <motion.div 
                     className="flex items-center justify-between mb-3"
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: false }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
-                    <h3 className="text-xl font-space font-bold text-foreground group-hover:text-primary transition-colors">
+                    <motion.h3 
+                      className="text-xl font-space font-bold text-white group-hover:text-green-400 transition-colors"
+                      whileHover={{ 
+                        scale: 1.05,
+                        textShadow: "0 0 10px rgba(0,255,100,0.8)"
+                      }}
+                    >
                       {area.title}
-                    </h3>
+                    </motion.h3>
                     <motion.span 
-                      className="text-xs px-2 py-1 bg-primary/20 text-primary rounded"
+                      className="text-xs px-3 py-1 neon-border text-green-400 rounded-full glass-effect"
                       whileHover={{ scale: 1.1 }}
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 + 0.2 }}
                     >
                       {area.experience}
                     </motion.span>
                   </motion.div>
                   
                   <motion.p 
-                    className="text-muted-foreground leading-relaxed"
-                    initial={{ opacity: 0, y: 10 }}
+                    className="text-gray-300 leading-relaxed"
+                    initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false }}
-                    transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
                   >
                     {area.description}
                   </motion.p>
