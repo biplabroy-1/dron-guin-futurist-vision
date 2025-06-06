@@ -1,81 +1,72 @@
-import { Lightbulb, Target, Globe } from 'lucide-react';
+import { useParallax } from '../hooks/useParallax';
+import { SectionContainer } from './ui/section-container';
+import { SectionTitle } from './ui/section-title';
+
+interface PhilosophyPoint {
+  title: string;
+  description: string;
+}
+
+const philosophyPoints: PhilosophyPoint[] = [
+  {
+    title: "Innovation First",
+    description: "Believing that technological innovation is the key to solving humanity's greatest challenges and unlocking our potential."
+  },
+  {
+    title: "Purpose-Driven",
+    description: "Every action, every project, every decision is guided by the ultimate question: How does this help us understand why life was created?"
+  },
+  {
+    title: "Global Impact",
+    description: "Thinking beyond boundaries to create solutions that benefit all of humanity, with a vision that spans the entire world."
+  }
+];
 
 const Philosophy = () => {
-  return (
-    <section className="relative w-full h-screen overflow-hidden">
-      <img 
-        src="/src/images/philosophy.jpg"
-        alt="philosophy background"
-        className="absolute top-0 left-0 w-full h-full object-cover rotate-90"
-      />
-      <div className="absolute inset-0 flex items-center justify-center">
-        <h2 className="text-4xl md:text-5xl font-space font-bold text-gradient">
-          My Philosophy
-        </h2>
-      </div>
+  useParallax('philosophy-bg', { speed: 0.3 });
 
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-space font-bold mb-6 text-gradient">
-            My Philosophy: Futurism
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            A philosophy dedicated to making the world a better place through technological advancement 
-            and human connection.
-          </p>
-        </div>
+  return (
+    <SectionContainer
+      id="philosophy"
+      backgroundImage="/src/images/443631-halo-wallpaper-hd-high-quality-wallpaper-background-image.png"
+    >
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+        <SectionTitle 
+          title="My Philosophy: Futurism"
+          subtitle="A philosophy dedicated to making the world a better place through technological advancement and human connection."
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <div className="bg-card p-8 border border-border hover:border-primary/50 transition-all duration-300">
-            <Lightbulb className="text-primary mb-4" size={32} />
-            <h3 className="text-xl font-space font-bold mb-4 text-foreground">Innovation First</h3>
-            <p className="text-muted-foreground">
-              Believing that technological innovation is the key to solving humanity's greatest challenges 
-              and unlocking our potential.
-            </p>
-          </div>
-
-          <div className="bg-card p-8 border border-border hover:border-primary/50 transition-all duration-300">
-            <Target className="text-primary mb-4" size={32} />
-            <h3 className="text-xl font-space font-bold mb-4 text-foreground">Purpose-Driven</h3>
-            <p className="text-muted-foreground">
-              Every action, every project, every decision is guided by the ultimate question: 
-              How does this help us understand why life was created?
-            </p>
-          </div>
-
-          <div className="bg-card p-8 border border-border hover:border-primary/50 transition-all duration-300">
-            <Globe className="text-primary mb-4" size={32} />
-            <h3 className="text-xl font-space font-bold mb-4 text-foreground">Global Impact</h3>
-            <p className="text-muted-foreground">
-              Thinking beyond boundaries to create solutions that benefit all of humanity, 
-              with a vision that spans the entire world.
-            </p>
-          </div>
+          {philosophyPoints.map((point, index) => (
+            <div 
+              key={index}
+              className="bg-black/30 backdrop-blur-sm p-6 rounded-lg"
+            >
+              <h3 className="text-xl font-bold text-white mb-3">{point.title}</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">
+                {point.description}
+              </p>
+            </div>
+          ))}
         </div>
 
-        <div className="bg-gradient-to-r from-primary/10 to-accent/10 p-12 border border-primary/30">
-          <h3 className="text-3xl font-space font-bold text-center mb-8 text-primary">
+        <div className="bg-black/30 backdrop-blur-sm p-12 rounded-lg max-w-4xl mx-auto">
+          <h3 className="text-2xl font-bold text-white text-center mb-8">
             The Futurist Manifesto
           </h3>
-          
-          <div className="max-w-4xl mx-auto">
-            <blockquote className="text-lg md:text-xl text-center text-muted-foreground italic leading-relaxed">
-              "I truly am a person who is honestly Futurist, who thinks about a technological future. 
-              My philosophy of Futurism isn't just about predicting tomorrow - it's about actively 
-              creating it. Through deep technology, artificial intelligence, and human connection, 
-              we can build a world where every person realizes their potential and contributes 
-              to the greater understanding of existence itself."
-            </blockquote>
-            
-            <div className="text-center mt-8">
-              <div className="w-16 h-0.5 bg-primary mx-auto mb-4"></div>
-              <p className="text-primary font-space font-semibold">Dron Guin</p>
-            </div>
+          <blockquote className="text-lg italic leading-relaxed text-gray-300 text-center">
+            "I truly am a person who is honestly Futurist, who thinks about a technological future.
+            My philosophy of Futurism isn't just about predicting tomorrow - it's about actively
+            creating it. Through deep technology, artificial intelligence, and human connection,
+            we can build a world where every person realizes their potential and contributes
+            to the greater understanding of existence itself."
+          </blockquote>
+          <div className="text-center mt-8">
+            <p className="font-semibold text-white">Dron Guin</p>
           </div>
         </div>
       </div>
-    </section>
+    </SectionContainer>
   );
 };
 

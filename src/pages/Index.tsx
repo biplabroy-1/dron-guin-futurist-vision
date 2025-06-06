@@ -5,7 +5,6 @@ import Philosophy from '../components/Philosophy';
 import Company from '../components/Company';
 import Projects from '../components/Projects';
 import Creative from '../components/Creative';
-import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 
 const Index = () => {
@@ -19,7 +18,6 @@ const Index = () => {
       <Company />
       <Projects />
       <Creative />
-      <Contact />
       <Footer />
     </div>
   );
