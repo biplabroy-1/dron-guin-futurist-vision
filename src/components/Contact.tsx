@@ -1,11 +1,10 @@
-
 import { Mail, MessageCircle, Globe, ArrowRight } from 'lucide-react';
 
 const Contact = () => {
   return (
     <section id="contact" className="py-20 bg-background">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in-up">
+        <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-space font-bold mb-6 text-gradient">
             Let's Connect
           </h2>
@@ -16,7 +15,7 @@ const Contact = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="animate-fade-in-up">
+          <div>
             <h3 className="text-3xl font-space font-bold mb-8 text-foreground">
               Get In Touch
             </h3>
@@ -59,7 +58,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="animate-slide-in-right">
+          <div>
             <div className="bg-card p-8 border border-border">
               <h4 className="text-2xl font-space font-bold text-foreground mb-6">
                 Ready to Build the Future?

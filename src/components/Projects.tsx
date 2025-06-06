@@ -1,5 +1,4 @@
-
-import { ExternalLink, Code, Beaker } from 'lucide-react';
+import { Beaker, Code, ExternalLink } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 const Projects = () => {
@@ -38,12 +37,10 @@ const Projects = () => {
   return (
     <section className="parallax-section">
       <img 
-        src="https://i.pinimg.com/736x/81/16/7a/81167a7f65cd29d2f12d343d1685a87c.jpg"
-        alt="tech innovation background"
-        className="parallax-bg"
-        style={{ 
-          transform: `translateY(${(scrollY - window.innerHeight * 3) * 0.4}px)` 
-        }}
+        src="https://i.pinimg.com/736x/5a/df/8e/5adf8ef83624ae99d8432d81a467d82a.jpg"
+        alt="projects background"
+        className="parallax-bg w-full h-screen object-cover"
+        style={{ transform: `translateY(${(scrollY - window.innerHeight * 3) * 0.4}px)` }}
       />
       
       <div className="section-content">

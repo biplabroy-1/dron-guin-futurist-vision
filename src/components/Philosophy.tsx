@@ -1,11 +1,21 @@
-
 import { Lightbulb, Target, Globe } from 'lucide-react';
 
 const Philosophy = () => {
   return (
-    <section id="philosophy" className="py-20 bg-background">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in-up">
+    <section className="relative w-full h-screen overflow-hidden">
+      <img 
+        src="/src/images/philosophy.jpg"
+        alt="philosophy background"
+        className="absolute top-0 left-0 w-full h-full object-cover rotate-90"
+      />
+      <div className="absolute inset-0 flex items-center justify-center">
+        <h2 className="text-4xl md:text-5xl font-space font-bold text-gradient">
+          My Philosophy
+        </h2>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-space font-bold mb-6 text-gradient">
             My Philosophy: Futurism
           </h2>
@@ -16,7 +26,7 @@ const Philosophy = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <div className="bg-card p-8 border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in-up">
+          <div className="bg-card p-8 border border-border hover:border-primary/50 transition-all duration-300">
             <Lightbulb className="text-primary mb-4" size={32} />
             <h3 className="text-xl font-space font-bold mb-4 text-foreground">Innovation First</h3>
             <p className="text-muted-foreground">
@@ -25,7 +35,7 @@ const Philosophy = () => {
             </p>
           </div>
 
-          <div className="bg-card p-8 border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+          <div className="bg-card p-8 border border-border hover:border-primary/50 transition-all duration-300">
             <Target className="text-primary mb-4" size={32} />
             <h3 className="text-xl font-space font-bold mb-4 text-foreground">Purpose-Driven</h3>
             <p className="text-muted-foreground">
@@ -34,7 +44,7 @@ const Philosophy = () => {
             </p>
           </div>
 
-          <div className="bg-card p-8 border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+          <div className="bg-card p-8 border border-border hover:border-primary/50 transition-all duration-300">
             <Globe className="text-primary mb-4" size={32} />
             <h3 className="text-xl font-space font-bold mb-4 text-foreground">Global Impact</h3>
             <p className="text-muted-foreground">
@@ -44,7 +54,7 @@ const Philosophy = () => {
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-primary/10 to-accent/10 p-12 border border-primary/30 animate-fade-in-up">
+        <div className="bg-gradient-to-r from-primary/10 to-accent/10 p-12 border border-primary/30">
           <h3 className="text-3xl font-space font-bold text-center mb-8 text-primary">
             The Futurist Manifesto
           </h3>
