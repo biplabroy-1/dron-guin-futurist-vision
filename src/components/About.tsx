@@ -27,7 +27,6 @@ const About = () => {
               title="About Me" 
               centered={false}
               subtitle="On a mission to understand life's purpose through technology and human connection"
-              subtitleClassName="mb-8 text-gray-400 text-lg"
             />
             
             <div className="space-y-6">
