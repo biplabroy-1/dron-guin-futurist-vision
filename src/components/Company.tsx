@@ -1,5 +1,4 @@
 import { Brain, Rocket, Users, Zap } from 'lucide-react';
-import { useParallax } from '../hooks/useParallax';
 import { SectionContainer } from './ui/section-container';
 import { SectionTitle } from './ui/section-title';
 
@@ -11,23 +10,23 @@ interface VisionPoint {
 
 const visionPoints: VisionPoint[] = [
   {
-    icon: <Brain className="text-primary mt-1 flex-shrink-0" size={24} />,
+    icon: <Brain className="text-primary mt-1 flex-shrink-0" size={20} />,
     title: 'Conscious AI',
     description:
       'Developing AI systems that understand context, purpose, and human values',
   },
   {
-    icon: <Rocket className="text-primary mt-1 flex-shrink-0" size={24} />,
+    icon: <Rocket className="text-primary mt-1 flex-shrink-0" size={20} />,
     title: 'Global Scale',
     description: 'Building solutions that can impact billions of lives worldwide',
   },
   {
-    icon: <Users className="text-primary mt-1 flex-shrink-0" size={24} />,
+    icon: <Users className="text-primary mt-1 flex-shrink-0" size={20} />,
     title: 'Human-Centric',
     description: 'Ensuring AI serves humanity rather than replacing it',
   },
   {
-    icon: <Zap className="text-primary mt-1 flex-shrink-0" size={24} />,
+    icon: <Zap className="text-primary mt-1 flex-shrink-0" size={20} />,
     title: 'Deep Tech Focus',
     description:
       'Leveraging the most advanced technologies for breakthrough innovations',
@@ -35,87 +34,84 @@ const visionPoints: VisionPoint[] = [
 ];
 
 const Company = () => {
-  useParallax('company-bg', { speed: 0.3, scale: true });
-
   return (
     <SectionContainer
       id="company"
+      className="h-screen bg-black relative overflow-hidden bg-cover bg-center px-6 py-8"
       backgroundImage="/src/images/167484-futuristic-desktop-wallpaper.jpg"
     >
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
-        <SectionTitle
-          title="Azmth Technologies AI"
-          subtitle="One of India's biggest AI companies, aspiring to become the world's best AI ecosystem."
-        />
+      <div className="absolute inset-0 z-0 " />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          <div className="animate-fade-in-up">
-            <h3 className="text-3xl font-space font-bold mb-6 text-white">
+      <div className="relative z-10 max-w-7xl mx-auto h-full flex flex-col justify-between">
+        {/* Title */}
+        <div className="text-center">
+          <SectionTitle
+            title="Azmth Technologies AI"
+            subtitle="One of India's biggest AI companies, aspiring to become the world's best AI ecosystem."
+          />
+        </div>
+
+        {/* Main Two Columns */}
+        <div className="flex flex-1 gap-6">
+          {/* Left: About Text */}
+          <div className="flex-1 bg-black/60 border border-white/10 p-6 flex flex-col justify-center text-sm text-gray-300 leading-snug">
+            <h3 className="text-xl font-space font-bold text-white mb-2">
               Building the Future of AI
             </h3>
-
-            <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
-              <p>
-                Azmth Technologies AI represents my vision of creating an ecosystem
-                where artificial intelligence serves humanity's highest aspirations.
-                We're not just building software - we're crafting the tools that will
-                help us understand life itself.
-              </p>
-
-              <p>
-                Our approach combines cutting-edge deep technology with a philosophical
-                understanding of consciousness and existence. Every AI system we develop
-                is designed with the ultimate question in mind: How can this bring us
-                closer to understanding why life was created?
-              </p>
-
-              <p>
-                From India to the world, we're building an AI ecosystem that prioritizes
-                human values, ethical development, and the betterment of all mankind.
-              </p>
-            </div>
+            <p>
+              Azmth Technologies AI represents my vision of creating an ecosystem
+              where artificial intelligence serves humanity's highest aspirations.
+              We're not just building software - we're crafting the tools that will
+              help us understand life itself.
+            </p>
+            <p className="mt-2">
+              Our approach combines cutting-edge deep technology with a philosophical
+              understanding of consciousness and existence. Every AI system we develop
+              is designed with the ultimate question in mind: How can this bring us
+              closer to understanding why life was created?
+            </p>
+            <p className="mt-2">
+              From India to the world, we're building an AI ecosystem that prioritizes
+              human values, ethical development, and the betterment of all mankind.
+            </p>
           </div>
 
-          <div className="animate-slide-in-right">
-            <div className="bg-black/30 backdrop-blur-sm p-8 rounded-lg">
-              <h4 className="text-2xl font-space font-bold text-primary mb-6">
-                Our Vision
-              </h4>
-
-              <div className="space-y-6">
-                {visionPoints.map((point, index) => (
-                  <div key={index} className="flex items-start space-x-4">
-                    {point.icon}
-                    <div>
-                      <h5 className="font-semibold text-white mb-2">
-                        {point.title}
-                      </h5>
-                      <p className="text-gray-400 text-sm">
-                        {point.description}
-                      </p>
-                    </div>
+          {/* Right: Vision Points */}
+          <div className="flex-1 bg-black/5  p-6 flex flex-col justify-center">
+            <h4 className="text-lg font-space font-bold text-primary mb-4">
+              Our Vision
+            </h4>
+            <div className="space-y-3 text-white text-sm">
+              {visionPoints.map((point, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  {point.icon}
+                  <div>
+                    <h5 className="font-medium">{point.title}</h5>
+                    <p className="text-xs text-gray-400 leading-snug">
+                      {point.description}
+                    </p>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 animate-fade-in-up">
-          <div className="bg-black/30 backdrop-blur-sm p-8 rounded-lg text-center">
-            <h4 className="text-3xl font-space font-bold text-primary mb-2">1000+</h4>
-            <p className="text-gray-400">Product Ideas</p>
-          </div>
-
-          <div className="bg-black/30 backdrop-blur-sm p-8 rounded-lg text-center">
-            <h4 className="text-3xl font-space font-bold text-primary mb-2">∞</h4>
-            <p className="text-gray-400">Possibilities</p>
-          </div>
-
-          <div className="bg-black/30 backdrop-blur-sm p-8 rounded-lg text-center">
-            <h4 className="text-3xl font-space font-bold text-primary mb-2">1</h4>
-            <p className="text-gray-400">Ultimate Goal</p>
-          </div>
+        {/* Stats Section */}
+        <div className="grid grid-cols-3 gap-4 text-center text-sm mt-4">
+          {[
+            { number: '1000+', label: 'Product Ideas' },
+            { number: '∞', label: 'Possibilities' },
+            { number: '1', label: 'Ultimate Goal' },
+          ].map((stat, idx) => (
+            <div
+              key={idx}
+              className="bg-black/5 p-4"
+            >
+              <h4 className="text-2xl font-bold text-primary">{stat.number}</h4>
+              <p className="text-gray-500">{stat.label}</p>
+            </div>
+          ))}
         </div>
       </div>
     </SectionContainer>

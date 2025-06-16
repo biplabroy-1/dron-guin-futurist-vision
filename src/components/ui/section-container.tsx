@@ -18,7 +18,7 @@ export const SectionContainer = ({
   return (
     <section
       id={id}
-      className={`relative min-h-screen w-full flex items-center justify-center py-20 overflow-hidden ${className}`}
+      className={`relative min-h-screen w-full flex items-center justify-center py-12 overflow-hidden ${className}`}
     >
       {backgroundImage && (
         <div

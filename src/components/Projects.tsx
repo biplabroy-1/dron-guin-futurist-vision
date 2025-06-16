@@ -1,4 +1,3 @@
-import { useParallax } from '../hooks/useParallax';
 import { SectionContainer } from './ui/section-container';
 import { SectionTitle } from './ui/section-title';
 
@@ -27,11 +26,10 @@ const projects: Project[] = [
 ];
 
 const Projects = () => {
-  useParallax('projects-bg', { speed: 0.3 });
-
   return (
     <SectionContainer
       id="projects"
+      className="min-h-screen h-screen relative overflow-hidden bg-black bg-cover bg-center"
       backgroundImage="/src/images/366932-nature-lake-clouds-artificial-gravity-futuristic.jpg"
     >
       <div className="max-w-6xl mx-auto px-6 lg:px-8">

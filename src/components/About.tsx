@@ -1,4 +1,3 @@
-import { useParallax } from '../hooks/useParallax';
 import { SectionContainer } from './ui/section-container';
 import { SectionTitle } from './ui/section-title';
 
@@ -15,11 +14,10 @@ const coreValues: CoreValue[] = [
 ];
 
 const About = () => {
-  useParallax('about-bg', { speed: 0.3 });
-
   return (
     <SectionContainer
       id="about"
+      className="min-h-screen h-screen bg-black relative overflow-hidden bg-cover bg-center"
       backgroundImage="/src/images/milky-way-8149815.jpg"
     >
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
@@ -29,12 +27,13 @@ const About = () => {
               title="About Me" 
               centered={false}
               subtitle="On a mission to understand life's purpose through technology and human connection"
+              subtitleClassName="mb-8 text-gray-400 text-lg"
             />
             
             <div className="space-y-6">
               <div className="bg-black/30 backdrop-blur-sm p-6 rounded-lg">
                 <p className="text-lg text-gray-300 leading-relaxed">
-                  I am <span className="text-white font-semibold">Dron Guin</span>, a person with 
+                  I am <span className="text-white font-semibold">Dron Guin</span>, a person with
                   a clear goal in life: to be a brand that stands for clarity and goodness. When 
                   people connect with me, they can be assured of one thing - they are good humans.
                 </p>

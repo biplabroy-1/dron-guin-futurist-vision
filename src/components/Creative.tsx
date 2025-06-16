@@ -1,5 +1,4 @@
 import { Instagram, Facebook, Linkedin, Twitter, Mail, Phone, Globe } from 'lucide-react';
-import { useParallax } from '../hooks/useParallax';
 import { SectionContainer } from './ui/section-container';
 import { SectionTitle } from './ui/section-title';
 
@@ -66,11 +65,10 @@ const socialLinks = [
 ];
 
 const Creative = () => {
-  useParallax('creative-bg', { speed: 0.3 });
-
   return (
     <SectionContainer
       id="creative"
+      className="min-h-screen h-screen relative overflow-hidden bg-black bg-cover bg-center"
       backgroundImage="/src/images/milky-way-8149815.jpg"
     >
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
