@@ -1,4 +1,3 @@
-import { Instagram, Facebook, Linkedin, Twitter, Mail, Phone, Globe } from 'lucide-react';
 import { SectionContainer } from './ui/section-container';
 import { SectionTitle } from './ui/section-title';
 
@@ -26,43 +25,6 @@ const creativeSkills: CreativeSkill[] = [
   }
 ];
 
-const socialLinks = [
-  {
-    icon: <Instagram size={32} />,
-    url: "https://www.instagram.com/dron.guin/",
-    label: "Instagram"
-  },
-  {
-    icon: <Facebook size={32} />,
-    url: "https://www.facebook.com/dron.guin.1",
-    label: "Facebook"
-  },
-  {
-    icon: <Linkedin size={32} />,
-    url: "https://www.linkedin.com/in/dron-g-64a706209/",
-    label: "LinkedIn"
-  },
-  {
-    icon: <Twitter size={32} />,
-    url: "https://twitter.com/dron_guin54527",
-    label: "Twitter"
-  },
-  {
-    icon: <Mail size={32} />,
-    url: "mailto:founder@globaltfn.tech",
-    label: "Email"
-  },
-  {
-    icon: <Phone size={32} />,
-    url: "tel:9123793073",
-    label: "Phone"
-  },
-  {
-    icon: <Globe size={32} />,
-    url: "https://orcid.org/0009-0002-5273-9563",
-    label: "Website"
-  }
-];
 
 const Creative = () => {
   return (
@@ -81,26 +43,11 @@ const Creative = () => {
           {creativeSkills.map((skill, index) => (
             <div 
               key={index}
-              className="glass-effect neon-border p-6 transition-all duration-300 hover:border-primary/50"
+              className="bg-white/5 border border-white/20 backdrop-blur-sm p-6 transition-all duration-300 text-white hover:border-primary/50"
             >
-              <h3 className="text-2xl font-bold text-white mb-3">{skill.title}</h3>
+              <h3 className="text-2xl font-bold mb-3">{skill.title}</h3>
               <p className="text-gray-300">{skill.description}</p>
             </div>
-          ))}
-        </div>
-
-        <div className="flex flex-wrap justify-center gap-6">
-          {socialLinks.map((link, index) => (
-            <a
-              key={index}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors duration-300"
-              aria-label={link.label}
-            >
-              {link.icon}
-            </a>
           ))}
         </div>
       </div>

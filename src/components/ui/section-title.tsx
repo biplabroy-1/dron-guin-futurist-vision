@@ -11,7 +11,7 @@ export const SectionTitle = ({
 }: SectionTitleProps) => {
   return (
     <div className={`mb-8 ${centered ? 'text-center' : ''} animate-fade-in-up`}>
-      <h2 className="text-4xl md:text-5xl font-space font-bold mb-6 text-gradient">
+      <h2 className="text-4xl md:text-5xl font-space font-bold mb-6  ">
         {title}
       </h2>
       {subtitle && (

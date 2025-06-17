@@ -16,8 +16,7 @@ const Hero = () => {
         <div className="animate-fade-in-up delay-300">
           <a
             href="#about"
-            className="inline-block px-8 py-4 text-lg font-medium text-white border-2 border-white/20 
-                     hover:border-white/40 transition-all duration-300 backdrop-blur-sm"
+            className="inline-block px-8 py-4 text-lg font-medium text-white border-2 border-white/20 hover:border-white/40 transition-all duration-300 backdrop-blur-sm"
           >
             Begin the Journey
           </a>

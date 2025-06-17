@@ -40,7 +40,7 @@ const Company = () => {
       className="h-screen bg-black relative overflow-hidden bg-cover bg-center px-6 py-8"
       backgroundImage="/src/images/167484-futuristic-desktop-wallpaper.jpg"
     >
-      <div className="absolute inset-0 z-0 " />
+      <div className="absolute inset-0 z-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto h-full flex flex-col justify-between">
         {/* Title */}
@@ -52,9 +52,15 @@ const Company = () => {
         </div>
 
         {/* Main Two Columns */}
-        <div className="flex flex-1 gap-6">
+        <div className="flex flex-1 gap-6 mt-8">
           {/* Left: About Text */}
-          <div className="flex-1 bg-black/60 border border-white/10 p-6 flex flex-col justify-center text-sm text-gray-300 leading-snug">
+          <div
+            className="flex-1 p-6 flex flex-col justify-center 
+                       text-sm text-gray-300 leading-snug 
+                       bg-white/5 backdrop-blur-sm 
+                       border-2 border-white/20 
+                       transition-all duration-300"
+          >
             <h3 className="text-xl font-space font-bold text-white mb-2">
               Building the Future of AI
             </h3>
@@ -77,7 +83,12 @@ const Company = () => {
           </div>
 
           {/* Right: Vision Points */}
-          <div className="flex-1 bg-black/5  p-6 flex flex-col justify-center">
+          <div
+            className="flex-1 p-6 flex flex-col justify-center 
+                       bg-white/5 backdrop-blur-sm 
+                       border-2 border-white/20 
+                       transition-all duration-300"
+          >
             <h4 className="text-lg font-space font-bold text-primary mb-4">
               Our Vision
             </h4>
@@ -87,7 +98,7 @@ const Company = () => {
                   {point.icon}
                   <div>
                     <h5 className="font-medium">{point.title}</h5>
-                    <p className="text-xs text-gray-400 leading-snug">
+                    <p className="text-xs text-gray-200 leading-snug">
                       {point.description}
                     </p>
                   </div>
@@ -106,10 +117,13 @@ const Company = () => {
           ].map((stat, idx) => (
             <div
               key={idx}
-              className="bg-black/5 p-4"
+              className="p-4 
+                         bg-white/5 backdrop-blur-sm 
+                         border-2 border-white/20 
+                         transition-all duration-300"
             >
               <h4 className="text-2xl font-bold text-primary">{stat.number}</h4>
-              <p className="text-gray-500">{stat.label}</p>
+              <p className="text-gray-200">{stat.label}</p>
             </div>
           ))}
         </div>

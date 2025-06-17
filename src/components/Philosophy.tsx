@@ -1,5 +1,5 @@
-import { SectionContainer } from './ui/section-container';
-import { SectionTitle } from './ui/section-title';
+import { SectionContainer } from "./ui/section-container";
+import { SectionTitle } from "./ui/section-title";
 
 interface PhilosophyPoint {
   title: string;
@@ -8,19 +8,19 @@ interface PhilosophyPoint {
 
 const philosophyPoints: PhilosophyPoint[] = [
   {
-    title: 'Innovation First',
+    title: "Innovation First",
     description:
       "Believing that technological innovation is the key to solving humanity's greatest challenges and unlocking our potential.",
   },
   {
-    title: 'Purpose-Driven',
+    title: "Purpose-Driven",
     description:
-      'Every action, every project, every decision is guided by the ultimate question: How does this help us understand why life was created?',
+      "Every action, every project, every decision is guided by the ultimate question: How does this help us understand why life was created?",
   },
   {
-    title: 'Global Impact',
+    title: "Global Impact",
     description:
-      'Thinking beyond boundaries to create solutions that benefit all of humanity, with a vision that spans the entire world.',
+      "Thinking beyond boundaries to create solutions that benefit all of humanity, with a vision that spans the entire world.",
   },
 ];
 
@@ -43,14 +43,16 @@ const Philosophy = () => {
         {/* 2-Column Content */}
         <div className="flex flex-1 gap-8">
           {/* Left Column */}
-          <div className="flex flex-col justify-between flex-1">
+          <div className="flex flex-col justify-between flex-1 gap-6">
             {philosophyPoints.map((point, index) => (
               <div
                 key={index}
-                className="bg-black/5 p-5 shadow-md text-white flex flex-col justify-center h-1/3"
+                className="px-4 py-2 h-1/3 text-white flex flex-col justify-center 
+                           border-2 border-white/20 backdrop-blur-sm 
+                           transition-all duration-300 bg-white/5"
               >
                 <h3 className="text-2xl font-semibold mb-2">{point.title}</h3>
-                <p className="text-sm text-gray-300 leading-relaxed">
+                <p className="text-sm text-gray-200 leading-relaxed">
                   {point.description}
                 </p>
               </div>
@@ -58,16 +60,24 @@ const Philosophy = () => {
           </div>
 
           {/* Right Column */}
-          <div className="bg-white/20 flex-1 p-8 shadow-md text-center flex flex-col justify-center text-white">
+          <div
+            className="flex-1 px-8 text-center text-white 
+             flex flex-col justify-center 
+             border-2 border-white/20 backdrop-blur-sm 
+             transition-all duration-300 bg-white/5"
+          >
             <h3 className="text-3xl font-bold mb-4">The Futurist Manifesto</h3>
-            <blockquote className="text-lg italic text-gray-300 leading-relaxed">
-              "I truly am a person who is honestly Futurist, who thinks about a technological future.
-              My philosophy of Futurism isn't just about predicting tomorrow - it's about actively
-              creating it. Through deep technology, artificial intelligence, and human connection,
-              we can build a world where every person realizes their potential and contributes
-              to the greater understanding of existence itself."
+            <blockquote className="text-lg italic text-gray-200 leading-relaxed text-justify">
+              "I truly am a person who is honestly Futurist, who thinks about a
+              technological future. My philosophy of Futurism isn't just about
+              predicting tomorrow - it's about actively creating it. Through
+              deep technology, artificial intelligence, and human connection, we
+              can build a world where every person realizes their potential and
+              contributes to the greater understanding of existence itself."
             </blockquote>
-            <p className="font-semibold text-white mt-4">Dron Guin</p>
+            <p className="font-semibold text-white mt-4 text-right">
+              Dron Guin
+            </p>
           </div>
         </div>
       </div>

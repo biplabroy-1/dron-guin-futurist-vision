@@ -29,7 +29,7 @@ const Navigation = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="text-xl font-space font-bold text-gradient">
+          <div className="text-xl font-space font-bold text-white">
             DRON GUIN
           </div>
 

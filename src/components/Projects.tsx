@@ -42,15 +42,16 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div 
               key={index}
-              className="glass-effect neon-border p-6 transition-all duration-300 hover:border-primary/50"
+              className="bg-white/5 border border-white/20 backdrop-blur-md 
+                         p-6 transition-all duration-300 text-white hover:border-primary/50"
             >
-              <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
-              <p className="text-gray-300 text-sm mb-4">{project.description}</p>
+              <h3 className="text-xl font-bold mb-3">{project.title}</h3>
+              <p className="text-gray-200 text-sm mb-4">{project.description}</p>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag, tagIndex) => (
                   <span 
                     key={tagIndex}
-                    className="px-2 py-1 bg-primary/20 text-primary text-xs rounded-full"
+                    className="px-2 py-1 text-xs rounded-full bg-white/20"
                   >
                     {tag}
                   </span>
@@ -64,7 +65,7 @@ const Projects = () => {
           <a 
             href="#contact" 
             className="inline-block px-8 py-4 text-white border-2 border-primary/30 
-                     hover:border-primary/60 transition-all duration-300 backdrop-blur-sm"
+                       hover:border-primary/60 transition-all duration-300 backdrop-blur-sm"
           >
             Collaborate with Us
           </a>
