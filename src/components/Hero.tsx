@@ -1,9 +1,12 @@
+import React from 'react';
+import futuristicBg from '../images/167484-futuristic-desktop-wallpaper.jpg'; // adjust path if necessary
+
 const Hero = () => {
   return (
     <section
       className="relative w-full h-screen overflow-hidden flex items-center justify-center bg-cover bg-center"
       style={{
-        backgroundImage: 'url(/src/images/167484-futuristic-desktop-wallpaper.jpg)',
+        backgroundImage: `url(${futuristicBg})`,
       }}
     >
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 text-center">

@@ -1,5 +1,6 @@
 import { SectionContainer } from './ui/section-container';
 import { SectionTitle } from './ui/section-title';
+import bgImage from '../images/milky-way-8149815.jpg'; // <-- Import the image properly
 
 interface CoreValue {
   title: string;
@@ -18,7 +19,7 @@ const About = () => {
     <SectionContainer
       id="about"
       className="min-h-screen h-screen bg-black relative overflow-hidden bg-cover bg-center"
-      backgroundImage="/src/images/milky-way-8149815.jpg"
+      backgroundImage={bgImage} // ✅ Use the imported image here
     >
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <SectionTitle 
@@ -60,7 +61,6 @@ const About = () => {
                     key={index} 
                     className="flex items-start space-x-3 rounded-lg transition-all duration-300"
                   >
-                    
                     <div>
                       <h4 className="font-semibold text-white">{value.title}</h4>
                       <p className="text-gray-400 text-sm">{value.desc}</p>

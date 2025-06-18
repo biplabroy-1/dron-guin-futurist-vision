@@ -1,5 +1,7 @@
 import { SectionContainer } from "./ui/section-container";
 import { SectionTitle } from "./ui/section-title";
+import bgImage from "../images/443631-halo-wallpaper-hd-high-quality-wallpaper-background-image.png"; // ✅ Import the image
+
 
 interface PhilosophyPoint {
   title: string;
@@ -29,7 +31,7 @@ const Philosophy = () => {
     <SectionContainer
       id="philosophy"
       className="h-screen bg-cover bg-center px-6"
-      backgroundImage="/src/images/443631-halo-wallpaper-hd-high-quality-wallpaper-background-image.png"
+      backgroundImage={bgImage} // ✅ Use imported image
     >
       <div className="relative z-10 h-full max-w-7xl mx-auto flex flex-col">
         {/* Title */}

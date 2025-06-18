@@ -1,6 +1,8 @@
 import { Brain, Rocket, Users, Zap } from 'lucide-react';
 import { SectionContainer } from './ui/section-container';
 import { SectionTitle } from './ui/section-title';
+import bgImage from '../images/167484-futuristic-desktop-wallpaper.jpg'; // ✅ Import the image
+
 
 interface VisionPoint {
   icon: JSX.Element;
@@ -38,7 +40,7 @@ const Company = () => {
     <SectionContainer
       id="company"
       className="h-screen bg-black relative overflow-hidden bg-cover bg-center px-6 py-8"
-      backgroundImage="/src/images/167484-futuristic-desktop-wallpaper.jpg"
+      backgroundImage={bgImage} // ✅ Use imported image
     >
       <div className="absolute inset-0 z-0" />
 

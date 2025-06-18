@@ -1,5 +1,7 @@
 import { SectionContainer } from './ui/section-container';
 import { SectionTitle } from './ui/section-title';
+import bgImage from '../images/366932-nature-lake-clouds-artificial-gravity-futuristic.jpg'; // ✅ Import the image
+
 
 interface Project {
   title: string;
@@ -30,7 +32,7 @@ const Projects = () => {
     <SectionContainer
       id="projects"
       className="min-h-screen h-screen relative overflow-hidden bg-black bg-cover bg-center"
-      backgroundImage="/src/images/366932-nature-lake-clouds-artificial-gravity-futuristic.jpg"
+      backgroundImage={bgImage} // ✅ Use imported image
     >
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <SectionTitle 

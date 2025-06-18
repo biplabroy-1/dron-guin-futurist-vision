@@ -1,5 +1,7 @@
 import { SectionContainer } from './ui/section-container';
 import { SectionTitle } from './ui/section-title';
+import bgImage from '../images/milky-way-8149815.jpg'; // ✅ Import image
+
 
 interface CreativeSkill {
   title: string;
@@ -31,7 +33,7 @@ const Creative = () => {
     <SectionContainer
       id="creative"
       className="min-h-screen h-screen relative overflow-hidden bg-black bg-cover bg-center"
-      backgroundImage="/src/images/milky-way-8149815.jpg"
+      backgroundImage={bgImage} // ✅ Use imported image
     >
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <SectionTitle 
