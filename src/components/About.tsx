@@ -1,6 +1,6 @@
 import { SectionContainer } from './ui/section-container';
 import { SectionTitle } from './ui/section-title';
-import bgImage from '../images/milky-way-8149815.jpg'; // <-- Import the image properly
+import bgImage from '../images/milky-way-8149815.jpg';
 
 interface CoreValue {
   title: string;
@@ -18,8 +18,8 @@ const About = () => {
   return (
     <SectionContainer
       id="about"
-      className="min-h-screen h-screen bg-black relative overflow-hidden bg-cover bg-center"
-      backgroundImage={bgImage} // ✅ Use the imported image here
+      className="min-h-screen relative overflow-hidden bg-black bg-cover bg-center py-16 lg:py-24"
+      backgroundImage={bgImage}
     >
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <SectionTitle 
@@ -27,31 +27,31 @@ const About = () => {
           subtitle="On a mission to understand life's purpose through technology and human connection"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mt-12">
           {/* Left Section */}
-          <div className="animate-fade-in-up space-y-6 h-full">
-            <div className="bg-white/5 border border-white/20 backdrop-blur-sm p-6 rounded-lg">
+          <div className="space-y-6">
+            <div className="bg-white/5 border border-white/20 backdrop-blur-sm p-6 rounded-lg transition-all duration-300">
               <p className="text-lg text-gray-200 leading-relaxed">
                 I am <span className="text-white font-semibold">Dron Guin</span>, a person with
                 a clear goal in life: to be a brand that stands for clarity and goodness. When 
-                people connect with me, they can be assured of one thing - they are good humans.
+                people connect with me, they can be assured of one thing – they are good humans.
               </p>
             </div>
 
-            <div className="bg-white/5 border border-white/20 backdrop-blur-sm p-6 rounded-lg">
+            <div className="bg-white/5 border border-white/20 backdrop-blur-sm p-6 rounded-lg transition-all duration-300">
               <p className="text-lg text-gray-200 leading-relaxed">
                 I have thousands of product ideas and the ambition to make a positive impact
                 on a global scale. My ultimate quest is to find out
-                <span className="text-white font-semibold"> "why life was created"</span> - 
+                <span className="text-white font-semibold"> "why life was created"</span> – 
                 this is my driving purpose.
               </p>
             </div>
           </div>
 
           {/* Right Section */}
-          <div className="animate-slide-in-right h-full">
-            <div className="bg-white/5 border border-white/20 backdrop-blur-sm p-8 rounded-lg">
-              <h3 className="text-3xl font-montserrat font-bold text-white mb-6">
+          <div>
+            <div className="bg-white/5 border border-white/20 backdrop-blur-sm p-8 rounded-lg transition-all duration-300">
+              <h3 className="text-2xl md:text-3xl font-montserrat font-bold text-white mb-6">
                 Core Values
               </h3>
 
@@ -68,7 +68,6 @@ const About = () => {
                   </div>
                 ))}
               </div>
-
             </div>
           </div>
         </div>
