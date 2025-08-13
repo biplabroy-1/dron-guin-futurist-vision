@@ -1,6 +1,6 @@
 import { SectionContainer } from './ui/section-container';
 import { SectionTitle } from './ui/section-title';
-import bgImage from '../images/milky-way-8149815.jpg';
+import bgImage from '/milky-way-8149815.jpg';
 
 interface CoreValue {
   title: string;

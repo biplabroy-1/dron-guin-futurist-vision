@@ -1,7 +1,7 @@
 import { Brain, Rocket, Users, Zap } from 'lucide-react';
 import { SectionContainer } from './ui/section-container';
 import { SectionTitle } from './ui/section-title';
-import bgImage from '../images/167484-futuristic-desktop-wallpaper.jpg';
+import bgImage from '/167484-futuristic-desktop-wallpaper.jpg';
 
 interface VisionPoint {
   icon: JSX.Element;

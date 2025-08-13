@@ -1,6 +1,6 @@
 import { SectionContainer } from './ui/section-container';
 import { SectionTitle } from './ui/section-title';
-import bgImage from '../images/milky-way-8149815.jpg'; // ✅ Import image
+import bgImage from '/milky-way-8149815.jpg'; // ✅ Import image
 
 interface CreativeSkill {
   title: string;

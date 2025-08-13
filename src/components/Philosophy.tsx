@@ -1,6 +1,6 @@
 import { SectionContainer } from "./ui/section-container";
 import { SectionTitle } from "./ui/section-title";
-import bgImage from "../images/443631-halo-wallpaper-hd-high-quality-wallpaper-background-image.png";
+import bgImage from "/443631-halo-wallpaper-hd-high-quality-wallpaper-background-image.png";
 
 interface PhilosophyPoint {
   title: string;

@@ -1,5 +1,4 @@
-import React from 'react';
-import futuristicBg from '../images/167484-futuristic-desktop-wallpaper.jpg'; // adjust path if necessary
+import futuristicBg from '/167484-futuristic-desktop-wallpaper.jpg'; // adjust path if necessary
 
 const Hero = () => {
   return (

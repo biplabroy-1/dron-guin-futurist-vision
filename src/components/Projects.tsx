@@ -1,6 +1,6 @@
 import { SectionContainer } from './ui/section-container';
 import { SectionTitle } from './ui/section-title';
-import bgImage from '../images/366932-nature-lake-clouds-artificial-gravity-futuristic.jpg';
+import bgImage from '/366932-nature-lake-clouds-artificial-gravity-futuristic.jpg';
 
 interface Project {
   title: string;
